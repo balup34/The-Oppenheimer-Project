@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.7 on darwin)" generated="20220303 16:56:33.302" rpa="false" schemaversion="2">
+<suite id="s1" name="01 NPHC Automation Suite" source="/Users/bpaulraj/Downloads/NPHC Project/Oppenheimer-Project/01_NPHC_Automation_Suite.robot">
+<kw name="Launch Application" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>java</arg>
+<arg>-jar</arg>
+<arg>OppenheimerProjectDev.jar</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20220303 16:56:33.578" level="INFO">Starting process:
+java -jar OppenheimerProjectDev.jar</msg>
+<status status="PASS" starttime="20220303 16:56:33.578" endtime="20220303 16:56:33.587"/>
+</kw>
+<kw name="Wait For Process" library="Process">
+<var>${result}</var>
+<arg>timeout=1min 30s</arg>
+<arg>on_timeout=kill</arg>
+<doc>Waits for the process to complete or to reach the given timeout.</doc>
+<msg timestamp="20220303 16:56:33.588" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220303 16:56:39.491" level="INFO">Process completed.</msg>
+<msg timestamp="20220303 16:56:39.492" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:33.587" endtime="20220303 16:56:39.492"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220303 16:56:39.494" level="INFO">
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.6.RELEASE)
+
+2022-03-03 16:56:34.761  INFO 17252 --- [           main] c.g.s.SampleserviceApplication           : Starting SampleserviceApplication v1.0.0 on C02YQB7XLVCG with PID 17252 (/Users/bpaulraj/Downloads/NPHC Project/Oppenheimer-Project/OppenheimerProjectDev.jar started by root in /Users/bpaulraj/Downloads/NPHC Project/Oppenheimer-Project)
+2022-03-03 16:56:34.766  INFO 17252 --- [           main] c.g.s.SampleserviceApplication           : The following profiles are active: local
+2022-03-03 16:56:36.046  INFO 17252 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d0626153] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 16:56:36.261  INFO 17252 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 16:56:36.346  INFO 17252 --- [           main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1548 ms
+2022-03-03 16:56:36.986  INFO 17252 --- [           main] o.h.Version                              : HHH000412: Hibernate Core {5.3.10.Final}
+2022-03-03 16:56:36.987  INFO 17252 --- [           main] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2022-03-03 16:56:37.148  INFO 17252 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2022-03-03 16:56:37.258  INFO 17252 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03 16:56:38.406  INFO 17252 --- [           main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 16 endpoint(s) beneath base path '/actuator'
+2022-03-03 16:56:38.473  INFO 17252 --- [           main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity&lt;springfox.documentation.spring.web.json.Json&gt; springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2022-03-03 16:56:38.711  INFO 17252 --- [           main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 16:56:38.900  INFO 17252 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-03-03 16:56:39.365  INFO 17252 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-03 16:56:39.366 ERROR 17252 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2022-03-03 16:56:39.369  INFO 17252 --- [           main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'</msg>
+<status status="PASS" starttime="20220303 16:56:39.492" endtime="20220303 16:56:39.494"/>
+</kw>
+<kw name="Get Process Id" library="Process">
+<arg>handle=None</arg>
+<doc>Returns the process ID (pid) of the process as an integer.</doc>
+<status status="PASS" starttime="20220303 16:56:39.495" endtime="20220303 16:56:39.495"/>
+</kw>
+<status status="PASS" starttime="20220303 16:56:33.577" endtime="20220303 16:56:39.495"/>
+</kw>
+<test id="s1-t1" name="TESTCASE:1">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.527" level="INFO">GET Request : url=http://localhost:8080/ 
+ path_url=/ 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.527" level="INFO">GET Response : url=http://localhost:8080/ 
+ status=200, reason= 
+ headers={'Content-Type': 'text/html;charset=UTF-8', 'Content-Language': 'en-IN', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Technical Challenge for CDS&lt;/title&gt;
+
+    &lt;link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="container-fluid"&gt;
+    &lt;h1 class="display-4"&gt;The Oppenheimer Project&lt;/h1&gt;
+
+    &lt;blockquote class="blockquote"&gt;
+        &lt;p class="mb-0"&gt;to dispense each working class hero with taxation relief as recognition to their voluntary contribution to city building efforts&lt;/p&gt;
+        &lt;footer class="blockquote-footer"&gt;Governor to City of Carson &lt;cite title="Source Title"&gt;The Daily Guleb&lt;/cite&gt;&lt;/footer&gt;
+    &lt;/blockquote&gt;
+
+    &lt;div class="container"&gt;
+        &lt;p class="lead"&gt;
+            In the year 1969, the City of Carson is a growing city that houses close to millions of working class heroes. To support the growing city population, a bill was passed that:
+        &lt;/p&gt;
+        &lt;blockquote class="blockquote text-center"&gt;‘each working class hero is to contribute a fraction of their yearly income towards city building’&lt;/blockquote&gt;
+        &lt;p class="lead"&gt;&lt;br/&gt;
+            This year, as part of the governor’s initiative to pony up surplus cash in the vault, each working class hero is gifted with taxation relief as recognition to their voluntary contribution to city building efforts. To facilitate this, the governor has drafted out the Oppenheimer Project.
+            &lt;br/&gt;
+            This is a software system that has to support 3 features:
+        &lt;/p&gt;
+
+        &lt;ul class="list-group list-group-flush"&gt;
+            &lt;li class="list-group-item"&gt;Enable Clerks to populate a list of working class heroes to the system&lt;/li&gt;
+            &lt;li class="list-group-item"&gt;Enable Bookkeepers to retrieve the payable taxation relief for each working class hero&lt;/li&gt;
+            &lt;li class="list-group-item"&gt;Enable Governor to dispense the money to each working class hero at her discretion&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+
+
+    &lt;div class="container" id="contents-main"&gt;
+        &lt;div id="contents"&gt;
+            &lt;div class="input-group mb-3"&gt;
+                &lt;div class="input-group-prepend"&gt;
+                    &lt;span class="input-group-text"&gt;Upload CSV file&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="custom-file"&gt;
+                    &lt;label class="custom-file-label"&gt;Choose file&lt;/label&gt;
+                    &lt;input type="file" class="custom-file-input" ref="inputFile" @change="uploadFile"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;button type="button" class="btn btn-primary" v-on:click="refreshTaxRelief"&gt;Refresh Tax Relief Table&lt;/button&gt;
+            &lt;a class="btn btn-info" href="/swagger-ui.html" role="button"&gt;Visit Swagger&lt;/a&gt;
+            &lt;button type="button" class="btn btn-danger invisible" v-on:click="dropTable"&gt;Wipeout Everything &lt;/button&gt;
+
+            &lt;br/&gt;
+
+            &lt;div v-if="tax &amp;&amp; tax.length" class="m-4"&gt;
+                &lt;table class="table table-hover table-dark"&gt;
+                    &lt;caption&gt;List of working class heroes and their tax relief&lt;/caption&gt;
+                    &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th scope="col"&gt;NatId&lt;/th&gt;
+                        &lt;th scope="col"&gt;Relief&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                    &lt;tr v-for="item in tax" :key="item.name"&gt;
+                        &lt;td&gt;{{ item.natid }}&lt;/td&gt;
+                        &lt;td&gt;{{ item.relief }}&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;h1 v-else&gt;No records at the moment 😢&lt;/h1&gt;
+
+            &lt;div class="jumbotron jumbotron-fluid"&gt;
+                &lt;div class="container"&gt;
+                    &lt;h1 class="display-4"&gt;Total Tax Relieves&lt;/h1&gt;
+                    &lt;p class="lead"&gt;£{{summary.totalTaxReliefAmount}} will be dispensed to {{summary.totalWorkingClassHeroes}} Working Class Hero/s&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;a class="btn btn-danger btn-block" href="dispense" role="button" style="font-size: 5em"&gt;Dispense Now&lt;/a&gt;
+            &lt;a href="/swagger-ui.html" style="visibility:hidden;" &gt;Visit Swagger New&lt;/a&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;footer&gt;
+    &lt;div class="footer-copyright text-center py-3"&gt;© 2019 Copyright:
+        &lt;a href="/"&gt;CDS Coding Challenge with Swagger&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;!--&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"&gt;&lt;/script&gt;--&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/axios@0.17.1/dist/axios.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/babel"&gt;
+
+    var app = new Vue({
+        el: '#contents',
+        data: {
+            file: "",
+            tax: [],
+            errors: [],
+            summary: {},
+            desserts: [
+                {name: 'Frozen Yogurt', calories: 159,},
+                {name: 'Ice cream sandwich', calories: 237,},
+                {name: 'Eclair', calories: 262,},
+                {name: 'Cupcake', calories: 305,},
+                {name: 'Gingerbread', calories: 356,},
+                {name: 'Jelly bean', calories: 375,},
+                {name: 'Lollipop', calories: 392,},
+                {name: 'Honeycomb', calories: 408,},
+                {name: 'Donut', calories: 452,},
+                {name: 'KitKat', calories: 518,},
+            ],
+        },
+        methods: {
+            uploadFile: function(event) {
+                console.log(event.target.files[0]);
+                let formData = new FormData();
+                formData.append('file', event.target.files[0]);
+
+                axios.post( '/calculator/uploadLargeFileForInsertionToDatabase',
+                    formData,
+                    {headers: {'Content-Type': 'multipart/form-data'}}
+                ).then(function(){console.log('SUCCESS!!');})
+                .catch(function(){console.log('FAILURE!!');});
+            },
+            refreshTaxRelief: function() {
+                axios.get('/calculator/taxRelief')
+                    .then(response =&gt; {
+                        console.log(response.data);
+                        this.tax = response.data;
+                        console.log('Details');
+                    })
+                    .catch(e =&gt; {
+                        this.errors.push(e);
+                });
+                axios.get('/calculator/taxReliefSummary')
+                    .then(response =&gt; {
+                        console.log(response.data);
+                        this.summary = response.data;
+                        console.log('Details');
+                    })
+                    .catch(e =&gt; {
+                        this.errors.push(e);
+                });
+            },
+            dropTable: function() {
+                axios.post('/calculator/rakeDatabase')
+                    .then((response) =&gt; {console.log(response.data)})
+                    .catch(e =&gt; {
+                        this.errors.push(e);
+                    });
+                axios.get('/calculator/taxRelief')
+                    .then(response =&gt; {
+                        console.log(response.data);
+                        this.tax = response.data;
+                        console.log('Details');
+                    })
+                    .catch(e =&gt; {
+                        this.errors.push(e);
+                });
+                axios.get('/calculator/taxReliefSummary')
+                    .then(response =&gt; {
+                        console.log(response.data);
+                        this.summary = response.data;
+                        console.log('Details');
+                    })
+                    .catch(e =&gt; {
+                        this.errors.push(e);
+                    });
+            }
+        },
+        created() {
+            axios.get('/calculator/taxRelief')
+                .then(response =&gt; {
+                    console.log(response.data);
+                    this.tax = response.data;
+                    console.log('Details');
+                })
+            .catch(e =&gt; {
+                this.errors.push(e);
+            });
+            axios.get('/calculator/taxReliefSummary')
+                .then(response =&gt; {
+                    console.log(response.data);
+                    this.summary = response.data;
+                    console.log('Details');
+                })
+                .catch(e =&gt; {
+                    this.errors.push(e);
+            });
+        },
+
+        });
+&lt;/script&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220303 16:56:39.528" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.496" endtime="20220303 16:56:39.528"/>
+</kw>
+<doc>Check WebApp is accessible or not</doc>
+<tag>sanity</tag>
+<status status="PASS" starttime="20220303 16:56:39.495" endtime="20220303 16:56:39.528"/>
+</test>
+<test id="s1-t2" name="TESTCASE:2">
+<kw name="GET" library="RequestsLibrary">
+<var>${response_dispense}</var>
+<arg>${base_url}/actuator</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.533" level="INFO">GET Request : url=http://localhost:8080//actuator 
+ path_url=//actuator 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.533" level="INFO">GET Response : url=http://localhost:8080//actuator 
+ status=200, reason= 
+ headers={'Content-Type': 'application/vnd.spring-boot.actuator.v2+json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body={"_links":{"self":{"href":"http://localhost:8080//actuator","templated":false},"auditevents":{"href":"http://localhost:8080//actuator/auditevents","templated":false},"beans":{"href":"http://localhost:8080//actuator/beans","templated":false},"caches-cache":{"href":"http://localhost:8080//actuator/caches/{cache}","templated":true},"caches":{"href":"http://localhost:8080//actuator/caches","templated":false},"health":{"href":"http://localhost:8080//actuator/health","templated":false},"health-component":{"href":"http://localhost:8080//actuator/health/{component}","templated":true},"health-component-instance":{"href":"http://localhost:8080//actuator/health/{component}/{instance}","templated":true},"conditions":{"href":"http://localhost:8080//actuator/conditions","templated":false},"configprops":{"href":"http://localhost:8080//actuator/configprops","templated":false},"env":{"href":"http://localhost:8080//actuator/env","templated":false},"env-toMatch":{"href":"http://localhost:8080//actuator/env/{toMatch}","templated":true},"flyway":{"href":"http://localhost:8080//actuator/flyway","templated":false},"info":{"href":"http://localhost:8080//actuator/info","templated":false},"loggers":{"href":"http://localhost:8080//actuator/loggers","templated":false},"loggers-name":{"href":"http://localhost:8080//actuator/loggers/{name}","templated":true},"heapdump":{"href":"http://localhost:8080//actuator/heapdump","templated":false},"threaddump":{"href":"http://localhost:8080//actuator/threaddump","templated":false},"metrics":{"href":"http://localhost:8080//actuator/metrics","templated":false},"metrics-requiredMetricName":{"href":"http://localhost:8080//actuator/metrics/{requiredMetricName}","templated":true},"scheduledtasks":{"href":"http://localhost:8080//actuator/scheduledtasks","templated":false},"httptrace":{"href":"http://localhost:8080//actuator/httptrace","templated":false},"mappings":{"href":"http://localhost:8080//actuator/mappings","templated":false}}} 
+ </msg>
+<msg timestamp="20220303 16:56:39.533" level="INFO">${response_dispense} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.529" endtime="20220303 16:56:39.533"/>
+</kw>
+<doc>Validate webApp actuator accessibility</doc>
+<tag>sanity</tag>
+<status status="PASS" starttime="20220303 16:56:39.528" endtime="20220303 16:56:39.533"/>
+</test>
+<test id="s1-t3" name="TESTCASE:3">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}/calculator/</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220303 16:56:39.534" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080//calculator/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220303 16:56:39.534" endtime="20220303 16:56:39.535"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19081765</arg>
+<arg>gender=m</arg>
+<arg>name=test1</arg>
+<arg>natid=1245</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.535" level="INFO">&amp;{data} = { birthday=19081765 | gender=m | name=test1 | natid=1245 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.535" endtime="20220303 16:56:39.535"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insert</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=202</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.542" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '104', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19081765", "gender": "m", "name": "test1", "natid": "1245", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.542" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=202, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '7', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=Alright 
+ </msg>
+<msg timestamp="20220303 16:56:39.542" level="INFO">${resp} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.535" endtime="20220303 16:56:39.542"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220303 16:56:39.542" endtime="20220303 16:56:39.543"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19081765</arg>
+<arg>gender=f</arg>
+<arg>name=test1</arg>
+<arg>natid=1245</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.543" level="INFO">&amp;{data} = { birthday=19081765 | gender=f | name=test1 | natid=1245 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.543" endtime="20220303 16:56:39.544"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insert</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=202</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.548" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '104', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19081765", "gender": "f", "name": "test1", "natid": "1245", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.548" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=202, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '7', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=Alright 
+ </msg>
+<msg timestamp="20220303 16:56:39.548" level="INFO">${resp} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.544" endtime="20220303 16:56:39.548"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220303 16:56:39.549" endtime="20220303 16:56:39.549"/>
+</kw>
+<doc>Validate Clerk able to insert a single record of working class hero into database via an API</doc>
+<tag>p0</tag>
+<status status="PASS" starttime="20220303 16:56:39.533" endtime="20220303 16:56:39.549"/>
+</test>
+<test id="s1-t4" name="TESTCASE:4">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}/calculator/</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220303 16:56:39.550" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080//calculator/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220303 16:56:39.550" endtime="20220303 16:56:39.551"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19081765</arg>
+<arg>gender=f</arg>
+<arg>name=rest</arg>
+<arg>natid=12455</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.551" level="INFO">&amp;{data} = { birthday=19081765 | gender=f | name=rest | natid=12455 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.551" endtime="20220303 16:56:39.551"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insertMultiple</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=202</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.557" level="INFO">POST Request : url=http://localhost:8080/calculator/insertMultiple 
+ path_url=/calculator/insertMultiple 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '104', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19081765", "gender": "f", "name": "rest", "natid": "12455", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.557" level="INFO">POST Response : url=http://localhost:8080/calculator/insertMultiple 
+ status=400, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT', 'Connection': 'close'} 
+ body={"timestamp":"2022-03-03T11:26:39.555+0000","status":400,"error":"Bad Request","message":"JSON parse error: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token\n at [Source: (PushbackInputStream); line: 1, column: 1]","path":"/calculator/insertMultiple"} 
+ </msg>
+<msg timestamp="20220303 16:56:39.561" level="FAIL">Url: http://localhost:8080/calculator/insertMultiple Expected status: 400 != 202</msg>
+<status status="FAIL" starttime="20220303 16:56:39.551" endtime="20220303 16:56:39.561"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" starttime="20220303 16:56:39.562" endtime="20220303 16:56:39.562"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220303 16:56:39.562" endtime="20220303 16:56:39.562"/>
+</kw>
+<doc>Validate Clerk able to insert more than one working class hero into database via an API</doc>
+<tag>p1</tag>
+<status status="FAIL" starttime="20220303 16:56:39.549" endtime="20220303 16:56:39.562">Url: http://localhost:8080/calculator/insertMultiple Expected status: 400 != 202</status>
+</test>
+<test id="s1-t5" name="TESTCASE:5">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.569" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief 
+ path_url=//calculator/taxRelief 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.569" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.569" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.563" endtime="20220303 16:56:39.569"/>
+</kw>
+<doc>Validate Bookkeeper, able to query the amount of tax relief for each person in the database</doc>
+<tag>p0</tag>
+<status status="PASS" starttime="20220303 16:56:39.562" endtime="20220303 16:56:39.570"/>
+</test>
+<test id="s1-t6" name="TESTCASE:6">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.576" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief 
+ path_url=//calculator/taxRelief 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.576" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.577" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.570" endtime="20220303 16:56:39.577"/>
+</kw>
+<doc>4 a)GET endpoint which returns a list consist of natid, tax relief amount and name</doc>
+<tag>p0</tag>
+<status status="PASS" starttime="20220303 16:56:39.570" endtime="20220303 16:56:39.577"/>
+</test>
+<test id="s1-t7" name="TESTCASE:7">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>params=query=-$$$$$$$</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.586" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief?query=-$$$$$$$ 
+ path_url=//calculator/taxRelief?query=-$$$$$$$ 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.586" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief?query=-$$$$$$$ 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.586" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.578" endtime="20220303 16:56:39.586"/>
+</kw>
+<doc>4 b) natid field must be masked from the 5th character onwards with dollar sign ‘$’</doc>
+<tag>p1</tag>
+<status status="PASS" starttime="20220303 16:56:39.577" endtime="20220303 16:56:39.587"/>
+</test>
+<test id="s1-t8" name="TESTCASE:8">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>params=query=.00</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.594" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief?query=.00 
+ path_url=//calculator/taxRelief?query=.00 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.594" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief?query=.00 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.594" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.587" endtime="20220303 16:56:39.594"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220303 16:56:39.594" endtime="20220303 16:56:39.595"/>
+</kw>
+<doc>4 d) After calculating the tax relief amount, it should be subjected to normal rounding rule to remove any decimal places</doc>
+<tag>p1</tag>
+<status status="PASS" starttime="20220303 16:56:39.587" endtime="20220303 16:56:39.595"/>
+</test>
+<test id="s1-t9" name="TESTCASE:9">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>params=query=50.00</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.602" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief?query=50.00 
+ path_url=//calculator/taxRelief?query=50.00 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.602" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief?query=50.00 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.602" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.596" endtime="20220303 16:56:39.602"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220303 16:56:39.603" endtime="20220303 16:56:39.603"/>
+</kw>
+<doc>4 e) If the calculated tax relief amount after subjecting to normal rounding rule is more than 0.00 but less than 50.00, the final tax relief amount should be 50.00</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.595" endtime="20220303 16:56:39.604"/>
+</test>
+<test id="s1-t10" name="TESTCASE:10">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/taxRelief</arg>
+<arg>params=query=.00</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.611" level="INFO">GET Request : url=http://localhost:8080//calculator/taxRelief?query=.00 
+ path_url=//calculator/taxRelief?query=.00 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.611" level="INFO">GET Response : url=http://localhost:8080//calculator/taxRelief?query=.00 
+ status=200, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=[{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"},{"natid":"1245","name":"test1","relief":"72.00"},{"natid":"1245","name":"test1","relief":"572.00"}] 
+ </msg>
+<msg timestamp="20220303 16:56:39.611" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.605" endtime="20220303 16:56:39.611"/>
+</kw>
+<doc>4 f) If the calculated tax relief amount before applying the normal rounding rule gives a value with more than 2 decimal places, it should be truncated at the second decimal place and then subjected to normal rounding rule</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.604" endtime="20220303 16:56:39.612"/>
+</test>
+<test id="s1-t11" name="TESTCASE:11">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/dispense</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.620" level="INFO">GET Request : url=http://localhost:8080//dispense 
+ path_url=//dispense 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.620" level="INFO">GET Response : url=http://localhost:8080//dispense 
+ status=200, reason= 
+ headers={'Content-Type': 'text/html;charset=UTF-8', 'Content-Language': 'en-IN', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Dispense!!&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="app"&gt;
+    &lt;v-app&gt;
+        &lt;v-content&gt;
+            &lt;v-container&gt;
+                &lt;div class="display-4 font-weight-bold"&gt;Cash dispensed&lt;/div&gt;
+            &lt;/v-container&gt;
+        &lt;/v-content&gt;
+    &lt;/v-app&gt;
+&lt;/div&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+    })
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220303 16:56:39.621" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.613" endtime="20220303 16:56:39.621"/>
+</kw>
+<doc>5. Validate Governor able to see a button on the screen to dispense tax relief</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.612" endtime="20220303 16:56:39.621"/>
+</test>
+<test id="s1-t12" name="TESTCASE:12">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/dispense</arg>
+<arg>params=query=Dispense!!</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.630" level="INFO">GET Request : url=http://localhost:8080//dispense?query=Dispense!! 
+ path_url=//dispense?query=Dispense!! 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.630" level="INFO">GET Response : url=http://localhost:8080//dispense?query=Dispense!! 
+ status=200, reason= 
+ headers={'Content-Type': 'text/html;charset=UTF-8', 'Content-Language': 'en-IN', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Dispense!!&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="app"&gt;
+    &lt;v-app&gt;
+        &lt;v-content&gt;
+            &lt;v-container&gt;
+                &lt;div class="display-4 font-weight-bold"&gt;Cash dispensed&lt;/div&gt;
+            &lt;/v-container&gt;
+        &lt;/v-content&gt;
+    &lt;/v-app&gt;
+&lt;/div&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+    })
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220303 16:56:39.630" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.622" endtime="20220303 16:56:39.630"/>
+</kw>
+<doc>5 b) The text on the button must be exactly “Dispense Now”</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.621" endtime="20220303 16:56:39.630"/>
+</test>
+<test id="s1-t13" name="TESTCASE:13">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/dispense</arg>
+<arg>params=query=Cash dispensed</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220303 16:56:39.638" level="INFO">GET Request : url=http://localhost:8080//dispense?query=Cash%20dispensed 
+ path_url=//dispense?query=Cash%20dispensed 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.638" level="INFO">GET Response : url=http://localhost:8080//dispense?query=Cash%20dispensed 
+ status=200, reason= 
+ headers={'Content-Type': 'text/html;charset=UTF-8', 'Content-Language': 'en-IN', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Dispense!!&lt;/title&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="app"&gt;
+    &lt;v-app&gt;
+        &lt;v-content&gt;
+            &lt;v-container&gt;
+                &lt;div class="display-4 font-weight-bold"&gt;Cash dispensed&lt;/div&gt;
+            &lt;/v-container&gt;
+        &lt;/v-content&gt;
+    &lt;/v-app&gt;
+&lt;/div&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+    })
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220303 16:56:39.639" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.631" endtime="20220303 16:56:39.639"/>
+</kw>
+<doc>After clicking on the button, it should direct me to a page with a text that says “Cash dispensed”</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.630" endtime="20220303 16:56:39.639"/>
+</test>
+<test id="s1-t14" name="TESTCASE:14">
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${base_url}/calculator/rakeDatabase</arg>
+<arg>params=query=Successfully raked DB</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220303 16:56:39.648" level="INFO">POST Request : url=http://localhost:8080//calculator/rakeDatabase?query=Successfully%20raked%20DB 
+ path_url=//calculator/rakeDatabase?query=Successfully%20raked%20DB 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20220303 16:56:39.648" level="INFO">POST Response : url=http://localhost:8080//calculator/rakeDatabase?query=Successfully%20raked%20DB 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<msg timestamp="20220303 16:56:39.648" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.640" endtime="20220303 16:56:39.648"/>
+</kw>
+<doc>Validate that able to Remove all records from DB</doc>
+<tag>p2</tag>
+<status status="PASS" starttime="20220303 16:56:39.639" endtime="20220303 16:56:39.648"/>
+</test>
+<test id="s1-t15" name="TESTCASE:15">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}/calculator/</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220303 16:56:39.649" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080//calculator/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220303 16:56:39.649" endtime="20220303 16:56:39.650"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19JAN1765</arg>
+<arg>gender=m</arg>
+<arg>name=test1</arg>
+<arg>natid=1245</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.650" level="INFO">&amp;{data} = { birthday=19JAN1765 | gender=m | name=test1 | natid=1245 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.650" endtime="20220303 16:56:39.650"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insert</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=500</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.657" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '105', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19JAN1765", "gender": "m", "name": "test1", "natid": "1245", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.657" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=500, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT', 'Connection': 'close'} 
+ body={"timestamp":"2022-03-03T11:26:39.655+0000","status":500,"error":"Internal Server Error","message":"Text '19JAN1765' could not be parsed at index 2","path":"/calculator/insert"} 
+ </msg>
+<msg timestamp="20220303 16:56:39.657" level="INFO">${resp} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.650" endtime="20220303 16:56:39.657"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>500</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220303 16:56:39.657" endtime="20220303 16:56:39.657"/>
+</kw>
+<doc>Validate the BIRTHDAY format should be DDMMYYYY</doc>
+<tag>p0</tag>
+<status status="PASS" starttime="20220303 16:56:39.649" endtime="20220303 16:56:39.658"/>
+</test>
+<test id="s1-t16" name="TESTCASE:16">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}/calculator/</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220303 16:56:39.659" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080//calculator/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220303 16:56:39.658" endtime="20220303 16:56:39.659"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19081765</arg>
+<arg>gender=male</arg>
+<arg>name=test1</arg>
+<arg>natid=1245</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.659" level="INFO">&amp;{data} = { birthday=19081765 | gender=male | name=test1 | natid=1245 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.659" endtime="20220303 16:56:39.660"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insert</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=500</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.668" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '107', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19081765", "gender": "male", "name": "test1", "natid": "1245", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.668" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=500, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT', 'Connection': 'close'} 
+ body={"timestamp":"2022-03-03T11:26:39.666+0000","status":500,"error":"Internal Server Error","message":"could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement","path":"/calculator/insert"} 
+ </msg>
+<msg timestamp="20220303 16:56:39.668" level="INFO">${resp} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.660" endtime="20220303 16:56:39.668"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>500</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220303 16:56:39.668" endtime="20220303 16:56:39.668"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>birthday=19081765</arg>
+<arg>gender=female</arg>
+<arg>name=test2</arg>
+<arg>natid=12457</arg>
+<arg>salary=1500</arg>
+<arg>tax=54</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220303 16:56:39.669" level="INFO">&amp;{data} = { birthday=19081765 | gender=female | name=test2 | natid=12457 | salary=1500 | tax=54 }</msg>
+<status status="PASS" starttime="20220303 16:56:39.669" endtime="20220303 16:56:39.669"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/insert</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=500</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220303 16:56:39.677" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '110', 'Content-Type': 'application/json'} 
+ body=b'{"birthday": "19081765", "gender": "female", "name": "test2", "natid": "12457", "salary": "1500", "tax": "54"}' 
+ </msg>
+<msg timestamp="20220303 16:56:39.677" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=500, reason= 
+ headers={'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 03 Mar 2022 11:26:39 GMT', 'Connection': 'close'} 
+ body={"timestamp":"2022-03-03T11:26:39.676+0000","status":500,"error":"Internal Server Error","message":"could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement","path":"/calculator/insert"} 
+ </msg>
+<msg timestamp="20220303 16:56:39.678" level="INFO">${resp} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20220303 16:56:39.669" endtime="20220303 16:56:39.678"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>500</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220303 16:56:39.678" endtime="20220303 16:56:39.678"/>
+</kw>
+<doc>WebApp should not allow to invalid values for gender, it should be "m or f"</doc>
+<tag>negative</tag>
+<tag>p0</tag>
+<status status="PASS" starttime="20220303 16:56:39.658" endtime="20220303 16:56:39.678"/>
+</test>
+<status status="FAIL" starttime="20220303 16:56:33.304" endtime="20220303 16:56:39.679"/>
+</suite>
+<statistics>
+<total>
+<stat pass="15" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">negative</stat>
+<stat pass="5" fail="0" skip="0">p0</stat>
+<stat pass="2" fail="1" skip="0">p1</stat>
+<stat pass="6" fail="0" skip="0">p2</stat>
+<stat pass="2" fail="0" skip="0">sanity</stat>
+</tag>
+<suite>
+<stat pass="15" fail="1" skip="0" id="s1" name="01 NPHC Automation Suite">01 NPHC Automation Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
