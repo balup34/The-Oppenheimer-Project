@@ -12,6 +12,8 @@ pip install robotframework-jsonlibrary
 
 
 
+
+
 How to run Oppenheimer-Project Automation:
 
 
@@ -38,10 +40,14 @@ robot --include p2 01_NPHC_Automation_Suite.robot
 
 
 
+
+
 Prerequisites:
 
 1. Jar file should be present in local project directory For Robot Suite Setup run
 2. File1.csv should be present in local project directory for running csv upload tests automation run
+
+
 
 
 
