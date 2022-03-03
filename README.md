@@ -1,4 +1,5 @@
-How to run Oppenheimer-Project Automation:
+![image](https://user-images.githubusercontent.com/10813561/156549810-98dfca9d-df87-440e-a328-395b2d34987d.png)
+
 
 STEP 1: Install robot framework and Python 3 
  
@@ -29,19 +30,15 @@ To run only p1 (Critical – Priority level 1) test cases use the below command:
 
 robot --include p1 01_NPHC_Automation_Suite.robot
 
-
 To run only p2 (Major – Priority level 2) test cases use the below command:
 
 robot --include p2 01_NPHC_Automation_Suite.robot
-
-
 
 
 Prerequisites:
 
 1. Jar file should be present in local project directory For Robot Suite Setup run
 2. File1.csv should be present in local project directory For running csv upload tests automation run
-
 
 
 NOTES :
