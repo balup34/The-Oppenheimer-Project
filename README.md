@@ -12,7 +12,7 @@ pip install robotframework-jsonlibrary
 
 
 
-- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:`
+HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:
 
 
 1.	To run all testcases use the below command:
@@ -52,3 +52,12 @@ NOTES:
 1.	Please refer Test Plan Document for E2E details on product and testing scope
 2.	Tested this Automation run on macOS BigSur Version 11.6.2. Robot scripts should run across all platforms without any issues. Please let automation team know if you face any issues
 
+
+
+```diff
+- TAMIL
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
