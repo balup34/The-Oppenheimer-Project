@@ -1,6 +1,6 @@
 ```diff
 
-! INSTALLATION:
+!INSTALLATION:
 
 1. Install robot framework and Python 3 
  
