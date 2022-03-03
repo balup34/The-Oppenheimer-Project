@@ -47,5 +47,3 @@ Prerequisites:
 NOTES :
 1.	Please refer Test Plan Document for E2E details on product and testing scope
 2.	Tested this Automation run on macOS BigSur Version 11.6.2. Robot scripts should run across all platforms without any issues. Please let automation team know if you face any issues
-
-![image](https://user-images.githubusercontent.com/10813561/156549088-defa00bc-bbc5-429c-b8cb-79f67b3dfc36.png)
