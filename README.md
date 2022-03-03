@@ -13,9 +13,7 @@
 # pip install robotframework-jsonlibrary
 
 
-
 - HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:
-
 
 1.	To run all testcases use the below command:
 
@@ -38,17 +36,10 @@
 # robot --include p2 01_NPHC_Automation_Suite.robot
 
 
-
-
-
 - PREREQUISITES:
 
 1. Jar file should be present in local project directory For Robot Suite Setup run
 2. File1.csv should be present in local project directory for running csv upload tests automation run
-
-
-
-
 
 - NOTES:
 1.	Please refer Test Plan Document for E2E details on product and testing scope
