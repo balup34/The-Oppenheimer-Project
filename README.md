@@ -1,4 +1,4 @@
-Installation:
+INSTALLATION:
 
 STEP 1: Install robot framework and Python 3 
  
@@ -12,9 +12,8 @@ pip install robotframework-jsonlibrary
 
 
 
+HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:
 
-
-How to run Oppenheimer-Project Automation:
 
 
 1.	To run all testcases use the below command:
@@ -41,8 +40,7 @@ robot --include p2 01_NPHC_Automation_Suite.robot
 
 
 
-
-Prerequisites:
+PREREQUISITES:
 
 1. Jar file should be present in local project directory For Robot Suite Setup run
 2. File1.csv should be present in local project directory for running csv upload tests automation run
