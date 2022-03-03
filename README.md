@@ -42,6 +42,7 @@
 2. File1.csv should be present in local project directory for running csv upload tests automation run
 
 - NOTES:
+
 1.	Please refer Test Plan Document for E2E details on product and testing scope
 2.	Tested this Automation run on macOS BigSur Version 11.6.2. Robot scripts should run across all platforms without any issues. Please let automation team know if you face any issues
 
