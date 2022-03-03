@@ -4,13 +4,13 @@
 
 1. Install robot framework and Python 3 
  
-pip install robotframework
+# pip install robotframework
 
 2. Install following libraries
 
-pip install robotframework-requests
+# pip install robotframework-requests
 
-pip install robotframework-jsonlibrary
+# pip install robotframework-jsonlibrary
 
 
 
@@ -19,23 +19,23 @@ pip install robotframework-jsonlibrary
 
 1.	To run all testcases use the below command:
 
-robot --include 01_NPHC_Automation_Suite.robot
+# robot --include 01_NPHC_Automation_Suite.robot
 
 2.	To run only negative testcases use the below command:
 
-robot --include negative 01_NPHC_Automation_Suite.robot
+# robot --include negative 01_NPHC_Automation_Suite.robot
 
 3.	To run only p0 (Blocker – Priority level 0) test cases use the below command:
 
-robot --include p0 01_NPHC_Automation_Suite.robot
+# robot --include p0 01_NPHC_Automation_Suite.robot
 
 4.	To run only p1 (Critical – Priority level 1) test cases use the below command:
 
-robot --include p1 01_NPHC_Automation_Suite.robot
+# robot --include p1 01_NPHC_Automation_Suite.robot
 
 5.	To run only p2 (Major – Priority level 2) test cases use the below command:
 
-robot --include p2 01_NPHC_Automation_Suite.robot
+# robot --include p2 01_NPHC_Automation_Suite.robot
 
 
 
