@@ -10,10 +10,9 @@ pip install robotframework-requests
 
 pip install robotframework-jsonlibrary
 
-- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
 
-HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:
 
+- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `HOW TO RUN OPPENHEIMER-PROJECT AUTOMATION SCRIPT:`
 
 
 1.	To run all testcases use the below command:
