@@ -1,10 +1,10 @@
 INSTALLATION:
 
-STEP 1: Install robot framework and Python 3 
+1. Install robot framework and Python 3 
  
 pip install robotframework
 
-STEP 2: Install following libraries
+2. Install following libraries
 
 pip install robotframework-requests
 
