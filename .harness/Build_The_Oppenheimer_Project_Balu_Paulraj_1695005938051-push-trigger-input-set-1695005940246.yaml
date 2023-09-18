@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_The_Oppenheimer_Project_Balu_Paulraj_1695005938051-push-trigger-input-set
+  identifier: Build_The_Oppenheimer_Project_Balu_Paulraj_1695005938051pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: EC
+  pipeline:
+    identifier: Build_The_Oppenheimer_Project_Balu_Paulraj_1695005938051
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
